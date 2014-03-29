@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog - More Thoughts on Twitter</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/02/more-thoughts-on-twitter">More Thoughts on Twitter</a></h3>
+    <span class="post-date">21 Feb 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/google-reader">google-reader</a>, 
+        
+            <a href="/blog/tag/php">php</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/twitterfeed">twitterfeed</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+
+<div id="post-/blog/2009/02/more-thoughts-on-twitter" class="post">
+    <p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> <strong>Update 3/5/09:</strong> Twitterfeed has become GTweet and has moved to it&#39;s own domain. See <a href="http://www.gtweet.net">gtweet.net</a> for more details.</span></p>
+
+<p>Despite <a href="http://www.twitterisntemail.com/">conflicting opinions</a> on how to use Twitter, my OCD makes it very difficult not to read each and every toot that comes my way.</p>
+
+<p>Because of this, I&#39;m really starting to like Google Reader for keeping track of my timeline. When I use a dedicated Twitter app I either feel bombarded or like I&#39;m missing tweets as they go by.</p>
+
+<p>With Google Reader, each toot has a &quot;read&quot; status like any other blog post, so I always know which tweets I haven&#39;t yet seen. The best part is that the read status is set and accessible whether I&#39;m using my iPod touch or any desktop browser.</p>
+
+<p>This is starting to sound like my post about Gmail and IMAP - maybe there is something to this &quot;cloud computing&quot; thing :)</p>
+
+<p>The first version of <a href="http://www.adamjarret.com/twitterfeed.php">my script</a> that adds some Twitter functionality to Google Reader is very hackish and since I&#39;m actually using it now as my primary means of reading Twitter, I&#39;m thinking about cleaning it up and adding a few niceties.</p>
+
+<ul>
+<li> The regex pattern for matching links is too greedy - if there are more than one link in the tweet, the non-link text in between the two links is matched as well.</li>
+<li> There is currently no way to &quot;favorite&quot; a tweet - I&#39;m pretty stingy with my favoriting, but it would be a nice feature to have nevertheless.</li>
+<li> To implement #2, I&#39;m going to have to deal with authentication anyway, so I might cut out <a href="http://freemyfeed.com">freemyfeed.com</a> entirely and pull updates directly from Twitter using the API. This should also decrease the waiting time for tweets to appear in my feed.</li>
+</ul>
+
+<p>I&#39;m not sure when I&#39;m going to have time to implement this but I took a look at the API call to &#9733;/&#9734; posts and it&#39;s pretty straightforward. If you have any other suggestions for what my script should do, let me know in the comments. Also, If you&#39;re a Twitter purist and feel like I&#39;m wasting my time, let me know why.</p>
+
+</div>
+
+
+
+<p>Comments are closed for this post.</p>
+
+<div class="spn-container"><div class="spn-group"><a class="spn-label spn-right" href="/blog/2009/02/wordpress-funkyness"><i class="fa fa-arrow-circle-right"></i> <b>Next</b></a> <a class="spn spn-right" href="/blog/2009/02/wordpress-funkyness">Wordpress Funkyness</a></div><div class="spn-group"><a class="spn-label spn-left" href="/blog/2009/02/twidget"><i class="fa fa-arrow-circle-left"></i> <b>Previous</b></a> <a class="spn spn-left" href="/blog/2009/02/twidget">Twidget</a></div></div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

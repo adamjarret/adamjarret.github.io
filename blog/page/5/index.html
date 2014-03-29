@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div id="blog-index">
+    
+    
+        
+    	<div id="post-/blog/2009/04/gtweet-beta-2-released" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/04/gtweet-beta-2-released">GTweet Beta 2 Released!</a></h3>
+    <span class="post-date">28 Apr 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/google-app-engine">google-app-engine</a>, 
+        
+            <a href="/blog/tag/google-reader">google-reader</a>, 
+        
+            <a href="/blog/tag/gtweet">gtweet</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/python">python</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p>I&#39;m thrilled to announce that <a href="http://www.gtweet.net">GTweet Beta 2</a> (now with 100% more Python) went live this morning.</p>
+
+<p>For those just joining us, I came back from vacation last week to find the PHP version of GTweet in shambles after my (shared) server collapsed under the pressure, so I decided to port it to Python and move it to <a href="http://code.google.com/appengine/">Google App Engine</a>.</p>
+
+<p>Please note that this is still very much a beta so please keep those comments and bug reports coming. Related: The only other thing I have written in Python was called <em>Hello World</em>, so be gentle.</p>
+
+<p><strong>Known Issues</strong></p>
+
+<ol>
+<li><p>I&#39;m not sure why, but sometimes submitting the sign-up form fails. Resubmitting the form seems to work, so if at first you don&#39;t suceed...</p></li>
+<li><p>So far this hasn&#39;t been a problem, but I&#39;m worried about those pesky text-encoding bugs rearing their ugly heads, so everyone keep a lookout!</p></li>
+<li><p>The link to favorite a tweet from within Google Reader is currently missing, but this should return with the next update.</p></li>
+</ol>
+
+<p><strong>Unfortuantely, all current users must re-make and re-subscribe to their GTweet URLs.</strong> Fans should know that I tried two separate approaches to providing backwards compatibility, but I couldn&#39;t get it working without relaxing the security of your account information to an uncomfortable degree.</p>
+
+<p>I had been planning new features for GTweet before the collapse, so it was somewhat frustrating to have to re-write existing features in Python, but it ended up being kind of fun.</p>
+
+<p>Python wasn&#39;t particularly hard to grasp, but it has it&#39;s quirks like any language - a marked lack of curly braces and strict-ish indentation rules made for an interesting Saturday.</p>
+
+<p>GTweet Beta 2 has the same functionality as before with a few differences in implementation:</p>
+
+<ol>
+<li><p>Your Twitter information is now encrypted and stored in GTweet&#39;s Google App Engine datastore instead of being contained in the URL. This change was in the works since before the Python version was needed because it opens the door for some features coming down the road and now seemed as good a time as any to make the switch.</p></li>
+<li><p>200 tweets are now pulled every refresh instead of 20 as suggested by <a href="/blog/2009/03/gtweet-bugfixes-and-beyond#comment-465">Andrew&#39;s Comment</a>.</p></li>
+<li><p>The Reply link should now properly thread conversations in Twitter. Most people won&#39;t notice this change, but it&#39;s part of being a good Twitter citizen.</p></li>
+<li><p>Because it&#39;s now running on Google&#39;s servers, interested folks should check out the link to Google&#39;s privacy policy at the bottom of the <strong>updated GTweet privacy policy</strong> on <a href="http://www.gtweet.net">gtweet.net</a>.</p></li>
+</ol>
+
+<p>Thanks for using GTweet and, as always, let me know what you think in the comments!</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.gtweet.net">GTweet</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2009/04/the-future-of-gtweet" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/04/the-future-of-gtweet">The Future of GTweet</a></h3>
+    <span class="post-date">23 Apr 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/google-app-engine">google-app-engine</a>, 
+        
+            <a href="/blog/tag/google-reader">google-reader</a>, 
+        
+            <a href="/blog/tag/gtweet">gtweet</a>, 
+        
+            <a href="/blog/tag/php">php</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/python">python</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p>After a wonderful and relaxing trip to Greece, I returned to a flurry of e-mails warning me that <a href="http://www.gtweet.net">GTweet</a> is down.</p>
+
+<p>Frustrating though it may be, I have the bittersweet problem of having grown too big for my hardware.</p>
+
+<p>As this is currently a hobby project, I don&#39;t have the resources to beef up the GTweet infrastructure (read: I&#39;m broke) so I&#39;m thinking about porting the whole thing to Python and running it on the Google App Engine.</p>
+
+<p>As ever the duties of my day job must come first, but I hope to get cracking on a somewhat more scalable version this weekend.</p>
+
+<p>Thanks to everyone who sent in bug reports and other feedback - I find it immensely gratifying that so many people find GTweet useful.</p>
+
+<p>On that note, I know times are tight all over, but if anyone who loves GTweet has a few extra bucks (or pounds, euros, yen or anything else), please consider the <strong>Donate</strong> button on my <a href="https://github.com/adamjarret?tab=repositories">projects page</a>. Thanks.</p>
+
+<p>Now, off to learn <a href="http://www.python.org">Python</a>...</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.gtweet.net">GTweet</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2009/04/remove-firefox-location-bar-select-all-annoyance" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/04/remove-firefox-location-bar-select-all-annoyance">Remove Firefox Location Bar Select-All Annoyance</a></h3>
+    <span class="post-date">20 Apr 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/firefox">firefox</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2009/04/remove-firefox-location-bar-select-all-annoyance"><p><img src="/img/blog/2009/04/firefox-logo-300x285.png" alt="Firefox 3"></p>
+</a></div>
+
+<p>I just discovered how to change a default Firefox setting that has been bothering me for ages.</p>
+
+<h4>The Problem</h4>
+
+<p>In Safari (the browser I use most often) single-clicking on the location bar does what most text input fields do: it places the cursor at the location in the text over which you positioned the mouse.</p>
+
+<p>In Firefox, single-clicking the location bar highlights the URL. Without fail, I start typing an addition to the the existing URL only to find that I have erased the text I was hoping to start with.</p>
+
+<p>Whether or not I should just suck it up and learn to touch-type and/or not be so lazy that I don&#39;t want to type out an entire URL is beside the point. It&#39;s just annoying.</p>
+
+<h4>The Solution</h4>
+
+<p>Thankfully, it&#39;s actually a relatively easy and small change.</p>
+
+<ol>
+<li><p>Open Firefox and type <code>about:config</code> into the location bar.</p></li>
+<li><p>Search for the <code>browser.urlbar.clickSelectsAll</code> setting and change it to false by double-clicking it.</p></li>
+<li><p>That&#39;s it! The change should take place immediately without even having to restart Firefox.</p></li>
+</ol>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.mozilla.com/firefox">Firefox</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2009/03/coda-updates-to-163" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/03/coda-updates-to-163">Coda Updates to 1.6.3</a></h3>
+    <span class="post-date">18 Mar 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/coda">coda</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p>As a belated St. Patrick&#39;s day gift to us all, <a href="http://www.panic.com">Panic</a> released <a href="http://www.panic.com/coda/">Coda 1.6.3</a> today.</p>
+
+<p>I haven&#39;t had any problems (or noticed anything super-cool) yet, but one point in the <a href="http://www.panic.com/coda/releasenotes.html">release notes</a> caught my attention.</p>
+
+<blockquote>
+<p>Can now navigate local books while off-line</p>
+</blockquote>
+
+<p><a href="http://www.adamjarret.com/blog/index.php/2008/11/04/view-locally-hosted-books-in-coda-when-offline/">I wrote about this</a> when I first started using Coda back in November of last year because it seems like a no-brainer.</p>
+
+<p>I tested the new feature and it works as advertised - if you add a book using a file:// url, the &quot;you are not connected to the internet&quot; warning is not displayed when you&#39;re offline.</p>
+
+<p>Unfortunately, the warning does not seem to be automatically dismissed for <em>locally hosted</em> books.</p>
+
+<p>For reasons explained in <a href="http://adamjarret.com/blog/index.php/2008/11/05/search-locally-hosted-books-in-coda-when-offline/">this post</a>, I like to have local copies of books that are served by Apache on http://localhost. It seems as though viewing these books while offline still produces a warning.</p>
+
+<p>Ah well. It looks like I&#39;ll be hitting CMD+R when trying to view local books without an internet connection for the foreseeable future. I can&#39;t really say I&#39;m too upset, because in reality the times when I&#39;m programming without an internet connection are few and far between.</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2009/03/gtweet-bugfixes-and-beyond" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/03/gtweet-bugfixes-and-beyond">GTweet: Bugfixes and Beyond</a></h3>
+    <span class="post-date">10 Mar 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/google-reader">google-reader</a>, 
+        
+            <a href="/blog/tag/gtweet">gtweet</a>, 
+        
+            <a href="/blog/tag/php">php</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p>I&#39;ve been attempting to shake any bugs out of <a href="http://www.gtweet.net">GTweet</a> since it&#39;s beta release.</p>
+
+<p>One glitch revealed itself when GTweet attempted to display certain html special characters. I applied a fix today, so hopefully we have seen the last of that.</p>
+
+<p>I also increased the text size of the tweet itself and made the tweeter&#39;s name a link to that person&#39;s Twitter page.</p>
+
+<p>If you use GTweet and have had any technical problems or would like to offer feedback, please contact me at <em>adam at adamjarret dot com</em>.</p>
+
+<p>Thinking about the future, I&#39;m thinking about setting up a forum or wiki for support questions, bug reports and possibly some documentation or an FAQ.</p>
+
+<p>Do any current users have a preference? Are you mailing list people? Let me know in the comments.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.gtweet.net">GTweet</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2009/03/gtweet-gets-official" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/03/gtweet-gets-official">GTweet gets official</a></h3>
+    <span class="post-date">5 Mar 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/google-reader">google-reader</a>, 
+        
+            <a href="/blog/tag/gtweet">gtweet</a>, 
+        
+            <a href="/blog/tag/php">php</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p><a href="http://www.gtweet.net">GTweet.net</a> pretty much says it all, but as a quick recap for those who don&#39;t know: I wrote a PHP application to allow people to read their Twitter feed in Google Reader.</p>
+
+<p>It&#39;s currently in beta (and in need of a few good beta testers) but should be feature complete and reasonably reliable. Some of those features include the handling of Twitter authentication, displaying the tweeter&#39;s avatar in the RSS feed and the ability to reply to tweets or to favorite them from within Google Reader.</p>
+
+<p>To be clear, favoriting or replying to a tweet opens a new browser window, but the links are provided below the text of each tweet for your convenience.</p>
+
+<p>The service is completely free so why not give it a try? Visit <a href="http://www.gtweet.net">http://www.gtweet.net</a> to get started.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.gtweet.net">GTweet</a></p>
+
+            
+    	</div>
+    
+
+    
+    <div class="nav-pagination">
+      
+        <a class="prev" href="/blog/page/4"><i class="fa fa-arrow-circle-left"></i> Newer Posts</a>
+      
+
+      <div class="pgnums">
+      
+        
+          <a href="/blog">1</a>
+        
+      
+        
+          <a href="/blog/page/2">2</a>
+        
+      
+        
+          <a href="/blog/page/3">3</a>
+        
+      
+        
+          <a href="/blog/page/4">4</a>
+        
+      
+        
+          <em>5</em>
+        
+      
+        
+          <a href="/blog/page/6">6</a>
+        
+      
+        
+          <a href="/blog/page/7">7</a>
+        
+      
+        
+          <a href="/blog/page/8">8</a>
+        
+      
+      </div>
+
+      
+        <a class="next" href="/blog/page/6">Older Posts <i class="fa fa-arrow-circle-right"></i></a>
+      
+    </div>
+    
+</div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

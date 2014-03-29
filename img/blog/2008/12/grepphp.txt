@@ -1,0 +1,141 @@
+<?php
+
+/*
+	Adam Jarret
+	PHP Grep Search v3 - Nov 13, 2008
+	http://www.adamjarret.com
+	
+	The command searches the directory specifieid in $folderpath for files that contain text that matches the submited
+	search string.
+	
+	It actually is utilizing both the find and grep commands - this is because attempting to grep through
+	too many files produces the "Argument list too long" error (see: http://www.computerhope.com/unix/ugrep.htm).
+	
+	Passing the -c parameter to grep overrides the default output (which prints the file name followed by the matching
+	line within the file) and instead prints the file name followed by the number of matches within the file.
+	
+	The last part of the command pipes the output of the first two parts through grep again, this time weeding out
+	files that have no matches. By passing the -v argument to grep, you are telling it to look for files that DO NOT 
+	match the search pattern (in this case, ":0"). 
+*/
+
+$s = $_GET['s'];
+
+if($s) {
+	$s = stripslashes($s);
+}
+
+$folderpath = "PHP/docs"; //folder to search (search is recursive)
+
+$pass = ""; //blank to bypass login
+
+$url = $_SERVER["SCRIPT_NAME"];
+
+$cmd = "find $folderpath -type f -print0 | xargs -0 grep -c $s | grep -v \":0\"";	
+
+
+session_start();
+
+$p = $_POST['pass'];
+if($p == $pass) {
+	$_SESSION['in'] = true;
+}
+
+$a = $_GET['a'];
+if($a == "logout") {
+	$_SESSION['in'] = false;
+}
+
+if($pass == "") {
+	$displayPage = true;
+} else {
+	$displayPage = $_SESSION['in'];
+}
+?>
+
+<html>
+<head>
+	<title>Search <?=($s ? "ed $s" : "")?>  (<?=$folderpath?>)</title>
+	<style type="text/css">
+	body, input {
+		font-family: "Lucida Grande", Verdana, Arial;
+	}
+	
+	h2 {
+		font-weight: normal;
+		color: #999999;
+		font-size: 10pt;
+		margin-top: -1em;
+		margin-bottom: 2em;
+	}
+	
+	form {
+		display: inline;
+	}
+	
+	</style>
+</head>
+<body>
+
+<?php
+
+if(!$displayPage) {
+	?>
+	<form method="post" action="<?=$url?>">
+		password: <input type="password" name="pass" />
+	</form>
+	<?php
+} else {
+
+	echo "<p><a href=\"$url?a=logout\">Log Out</a></p>\n<h2>$url</h2>\n";
+
+	echo("<h1><a href=\"$url\">Search". ($s ? "ed</a> $s" : "</a>") ."</h1>\n");
+	
+	if($s) {
+		echo "<h2>$cmd</h2>\n";
+	}
+	?>
+	
+	<hr />
+	<form method="get" action="">
+		<input type="text" value="<?=str_replace("\"", "&quot;", $s);?>" name="s" />
+		<input type="submit" value="Search" />
+	</form>
+	<hr />
+	
+	<?php
+	if($s) {
+		$result = `$cmd`;
+
+		$lines = explode("\n", trim($result));
+		
+		//place the url and the occurrance count in two separate arrays that will be sorted together
+		for($i=0; $i<count($lines); $i++) {
+			$output = $lines[$i];
+			
+			$colon_pos = strrpos($output, ":");
+			
+			$output_url = substr($output, 0, $colon_pos);
+			$output_count = substr($output, $colon_pos+1);
+			
+			$sortedLineCount[$i] = $output_count;
+			$sortedLineURL[$i] = $output_url;
+		}
+		
+		array_multisort($sortedLineCount, SORT_DESC, $sortedLineURL); //sort arrays
+		
+		//ouput sorted arrays
+		for($i=0; $i<count($sortedLineCount); $i++) {
+			$output_count = $sortedLineCount[$i];
+			$output_url = $sortedLineURL[$i];
+	
+			$output = "<p>". ($i+1) .". <a href=\"". trim($output_url) ."\">$output_url</a> ($output_count)</p>";
+		
+			echo "$output\n";
+		}
+	}
+}
+?>
+
+</body>
+</html>

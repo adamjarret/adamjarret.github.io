@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div id="blog-index">
+    
+    
+        
+    	<div id="post-/blog/2010/11/write-your-own-coda-plug-in" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></h3>
+    <span class="post-date">12 Nov 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/cocoa">cocoa</a>, 
+        
+            <a href="/blog/tag/coda">coda</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/os-x">os-x</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/11/write-your-own-coda-plug-in"><p><img src="/img/blog/2010/11/wing-man-256.png" alt="Coda Wing Man Icon"></p>
+</a></div>
+
+<p>My love for <a href="http://panic.com/coda">Coda</a> knows no bounds. Except maybe the bounds of the tab bar.</p>
+
+<p>One especially sprawling project at work brought the problem to a head: switching between all the files had simply become too tedious. Rather than desert Coda (perish the thought) I decided to whip up a plug-in called <a href="https://github.com/adamjarret/Coda-Wing-Man">Wing Man</a>. Panic has a pretty good <a href="http://panic.com/coda/plugins-dev.html">how to</a> on the basics of plug-in building so I won&#39;t rehash all of that here.</p>
+
+<p>A few points of interest to others interested in creating a Coda plugin:</p>
+
+<ul>
+<li><p>You&#39;ll need to grab a copy of <strong>CodaPlugInsController.h</strong> from one of the sample projects.</p></li>
+<li><p>Be sure to compile the plug-in bundle as <strong>32-bit Universal</strong>.</p>
+
+<p><span class="instruction-description"><i class="fa fa-info-circle"></i> To set the architecture of your plug-in bundle, right click on the bundle in the <strong>Targets</strong> section and choose <strong>Get Info</strong>. Choose <strong>32-bit Universal</strong> from the list of architectures in the Build tab.</span></p></li>
+<li><p>The bundle extension should be <strong>codaplugin</strong>, not <strong>bundle</strong>.</p>
+
+<p><span class="instruction-description"><i class="fa fa-info-circle"></i> To set the extension of your plug-in bundle, right click on the bundle in the <strong>Targets</strong> section and choose <strong>Get Info</strong>. Set the <strong>Wrapper Extension</strong> to &quot;codaplugin&quot; (without the quotes) in the Build tab.</span></p></li>
+</ul>
+
+<p><i class="fa fa-share-square-o"></i> <a href="https://github.com/adamjarret/Coda-Wing-Man">Wing Man</a> on github</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2010/04/debian-beep-at-login-prompt" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></h3>
+    <span class="post-date">28 Apr 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/debian">debian</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/linux">linux</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/04/debian-beep-at-login-prompt"><p><img src="/img/blog/2010/04/debian-logo.png" alt="Debian Logo"></p>
+</a></div>
+
+<p>A spare PC that&#39;s been kicking around my apartment recently got a fresh dose of <a href="http://www.debian.org/CD/netinst/">Lenny</a>.</p>
+
+<p>As a headless machine, it&#39;s handy to have the system beep when it reaches the log in prompt to announce that it&#39;s ready to accept SSH connections.</p>
+
+<p>This is achieved with the <code>beep</code> command which can be installed with</p>
+
+<p><code>apt-get install beep</code></p>
+
+<p>The <code>beep</code> command can be used to play beeps at different frequencies and durations. For my &quot;system ready&quot; sound I decided on: </p>
+
+<p><code>beep -f 750 -l 200 -n -f 650 -l 200 -n -f 750 -l 200</code></p>
+
+<p>To execute the above command when the log in prompt is displayed, paste it into <strong>/etc/rc.local</strong> before the line <code>exit 0</code>.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.debian.org/CD/netinst/">Debian</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2010/04/stop-remote-desktop-from-locking-the-host" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></h3>
+    <span class="post-date">4 Apr 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/remote-desktop">remote-desktop</a>, 
+        
+            <a href="/blog/tag/windows">windows</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host"><p><img src="/img/blog/2010/04/rdp_icon-300x294.png" alt="RDP Icon"></p>
+</a></div>
+
+<p>Closing a Windows Remote Desktop connection leaves the host machine locked, but it is possible to create a shortcut that will close the session without locking the screen.</p>
+
+<h4>To create the shortcut:</h4>
+
+<ol>
+<li><p>Right click on the Desktop and select <strong>New</strong> &rarr; <strong>Shortcut</strong></p>
+
+<p><a href="/img/blog/2010/04/rdp_disconnect_1.png" class="screen-shot" data-lightbox="rdp-disconnect_screen-shots" title="Right click on the Desktop and select New &rarr; Shortcut">
+     <img src="/img/blog/2010/04/rdp_disconnect_1-300x209.png" alt="New shortcut dialog screen shot" />
+</a></p></li>
+<li><p>For <strong>Windows 7/Vista hosts</strong>, enter the following:</p>
+
+<del datetime="2011-09-08T19:11:49+00:00"><code>%windir%\System32\tscon.exe %sessionname% /dest:console</code></del>
+
+<p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> <strong>Update</strong>: After a recent system update, using the <code>%sessionname%</code> variable started causing an error. I switched to hard-coding <code>1</code> instead and this has worked so far.</span></p>
+
+<p><code>%windir%\System32\tscon.exe 1 /dest:console</code></p>
+
+<p>For <strong>Windows XP hosts</strong>, enter the following:</p>
+
+<p><code>%windir%\System32\tscon.exe 0 /dest:console</code></p></li>
+<li><p>Click <strong>Next</strong>, enter a name for the shortcut and then click <strong>Finish</strong>. The name can be anything you like.</p>
+
+<p><a href="/img/blog/2010/04/rdp_disconnect_2.png" class="screen-shot" data-lightbox="rdp-disconnect_screen-shots" title="Enter a name for the shortcut and then click Finish. The name can be anything you like.">
+     <img src="/img/blog/2010/04/rdp_disconnect_2-300x209.png" alt="New shortcut dialog screen shot" />
+</a></p></li>
+<li><p>On Windows 7/Vista hosts, this shortcut needs to be run with administrator privileges. Right click on the newly created shortcut and select <strong>Properties</strong>.</p></li>
+<li><p>Click the <strong>Advanced</strong> button on the Properties window.</p></li>
+<li><p>Check the box marked <strong>Run as administrator</strong> and then click <strong>OK</strong>.</p>
+
+<p><a href="/img/blog/2010/04/rdp_disconnect_3.png" class="screen-shot" data-lightbox="rdp-disconnect_screen-shots" title="Check the box marked 'Run as administrator' and then click OK.">
+     <img src="/img/blog/2010/04/rdp_disconnect_3-300x202.png" alt="New shortcut dialog screen shot" />
+</a></p></li>
+</ol>
+
+<p>Pin the shortcut to the Start menu or the taskbar and click it when you would like to disconnect.</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2010/02/google-voice-fluid-ssb" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></h3>
+    <span class="post-date">20 Feb 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/fluid">fluid</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/google-voice">google-voice</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/02/google-voice-fluid-ssb"><p><img src="/img/blog/2010/02/GoogleVoice_800x800-300x300.png" alt="Google Voice Icon"></p>
+</a><span class="caption">Google Voice Icon by malabooboo </span></div>
+
+<p><a href="http://google.com/voice">Google Voice</a> is the eighth wonder of the world.</p>
+
+<p>Mac users lucky enough to have secured an invite might consider creating a <a href="http://fluidapp.com/">Fluid site specific browser</a> to carve out some space for Google Voice on the Dock.</p>
+
+<p>An SSB is quite useful in itself, but even more so when a few CSS tweaks are applied.</p>
+
+<p>After launching Fluid and creating the SSB for <strong>http://google.com/voice</strong> (I highly recommend using <a href="http://www.flickr.com/photos/malabooboo/3724142785/sizes/o/in/pool-636943@N22/">malabooboo&#39;s icon</a> for the app icon), launch the newly created app and open the preferences panel.</p>
+
+<p>Click on <strong>Userstyles</strong> and then on the plus button to add a new URL pattern.</p>
+
+<p>In my case I simply used <strong>an asterisk (*)</strong> for the pattern, which matches any url. For more information on Userstyles, <a href="http://www.viddler.com/explore/itod/videos/28/">watch this video</a>.</p>
+
+<p>Adding your own CSS formatting instructions will alter how the page is displayed and potentially remove annoyances. Here are a few examples:</p>
+
+<h4>Allow the SMS textarea to be resized</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.gc-quicksms</span> <span class="nt">div</span> <span class="nt">textarea</span> <span class="p">{</span>
+    <span class="n">resize</span><span class="o">:</span> <span class="k">both</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Stop the SMS history from being hidden (remove "more messages" link)</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.gc-message-sms-old</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.gc-message-sms-show</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Hide the "Invite a Friend" link</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nf">#gc-sidebar-invites</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Hide the Google Services links</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nf">#gbar</span> <span class="p">{</span>
+        <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Remember to refresh the browser window with CMD-R to apply any changes made to the userstyles.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://google.com/voice">Google Voice</a></p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></h3>
+    <span class="post-date">14 Jan 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/flash">flash</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/kpcs">kpcs</a>, 
+        
+            <a href="/blog/tag/os-x">os-x</a>, 
+        
+            <a href="/blog/tag/ppc">ppc</a>, 
+        
+            <a href="/blog/tag/twit">twit</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x"><p><img src="/img/blog/2010/01/FlashLogo_6.jpg" alt="Flash Logo"></p>
+</a></div>
+
+<p>If you&#39;ve noticed Safari crashing more often lately on your PowerPC Mac, you&#39;re not alone.</p>
+
+<p>At first I blamed the Verizon cell data coverage in Las Vegas for the stuttering video and dropped frames that I noticed when tuning into <a href="http://live.twit.tv">TWiT Live</a> for their <a href="http://www.youtube.com/twit#p/c/7E518C4056A1B726">CES Coverage</a>, but when the browser started locking up completely I knew it had to be Flash.</p>
+
+<p>A little Googling revealed that <a href="http://www.adobe.com/support/security/bulletins/apsb09-19.html">Adobe is dropping support for PowerPC G3 after 10.1</a>:</p>
+
+<blockquote>
+<p>The Adobe Flash Player 10.1 release, expected in the first half of 2010, will be the last version to support Macintosh PowerPC-based G3 computers. Adobe will be discontinuing support of PowerPC-based G3 computers and will no longer provide security updates after the Flash Player 10.1 release. This unavailability is due to performance enhancements that cannot be supported on the older PowerPC architecture.</p>
+</blockquote>
+
+<p>While this does not mean that Flash Player 10 will be completely unsupported on G4-based hardware, Adobe is clearly focusing their performance tweaks on Intel chips.</p>
+
+<p>Performance improvements in Flash can only be a good thing and I can&#39;t expect developers to support PPC when Apple itself requires an Intel processor to run Snow Leopard. Unfortunately this means that the current version of Flash is completely unusable on my old PowerBook G4.</p>
+
+<p><span class="instruction-description"><i class="fa fa-info-circle"></i> Obligatory Caution: There are always security concerns when choosing not to run the most up to date version of any software. The machine I downgraded is my file server, which is not my primary browsing machine. As ever, browse with common sense.</span></p>
+
+<h4>How to Downgrade to Flash Player 9</h4>
+
+<ol>
+<li><p><a href="http://fpdownload.macromedia.com/get/flashplayer/current/uninstall_flash_player_osx.dmg">Download the Flash Player Uninstaller</a> from <a href="http://kb2.adobe.com/cps/141/tn_14157.html">this TechNote</a></p></li>
+<li><p>Mount the disk image, launch <strong>Flash Player Uninstaller</strong> and follow the prompts</p></li>
+<li><p><a href="http://fpdownload.macromedia.com/get/flashplayer/installers/archive/fp9_archive.zip">Download the Flash Player 9 testing archive</a> (221MB!) from <a href="http://kb2.adobe.com/cps/142/tn_14266.html">this TechNote</a></p></li>
+<li><p>Extract the archive and browse to the <strong>9r260 folder</strong></p></li>
+<li><p>Double click <strong>flashplayer9r260_mac.dmg</strong> to mount the disk image</p></li>
+<li><p>Drag each file into the indicated folder:</p>
+
+<p><a href="/img/blog/2010/01/Picture-2.png" class="screen-shot" data-lightbox="downgrade-flash_screen-shots">
+     <img src="/img/blog/2010/01/Picture-2.png" alt="Screen Shot" />
+</a></p></li>
+<li><p>Restart your browser</p></li>
+</ol>
+
+<p>Once you have completed the steps, browse to a site with Flash content and right click on a Flash object. If you see <strong>About Adobe Flash Player 9</strong>, sit back, relax and enjoy <a href="http://kevinpollakschatshow.com">Kevin Pollak&#39;s Chat Show</a>.</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2010/01/slingplayer-iphone-app-rated-12" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/01/slingplayer-iphone-app-rated-12">SlingPlayer iPhone App Rated 12+?</a></h3>
+    <span class="post-date">4 Jan 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/html-5">html-5</a>, 
+        
+            <a href="/blog/tag/iphone">iphone</a>, 
+        
+            <a href="/blog/tag/opinion">opinion</a>, 
+        
+            <a href="/blog/tag/slingbox">slingbox</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2010/01/slingplayer-iphone-app-rated-12"><p><img src="/img/blog/2010/01/slingplayer-iphone-app-rating.png" alt="SlingPlayer Mobile Rating Screen Shot"></p>
+</a><span class="caption">SlingPlayer Mobile App Store Screen Shot </span></div>
+
+<p>After excitedly unwrapping a <a href="http://www.slingbox.com/go/slingbox-solo">Slingbox SOLO</a> this holiday season, I decided to have a look at the <a href="http://itunes.apple.com/us/app/slingplayer-mobile/id309280605?mt=8">SlingPlayer Mobile iPhone app</a>. As you might expect, the app lets you watch your SlingBox content on Apple touch devices.</p>
+
+<p>Much has been made of the steep price ($30!) and the fact that AT&amp;T crippled the software by making it WiFi only, but it was the rating for the app on the iTunes Store that caught my eye.</p>
+
+<p>A rating of 12+ seems ludicrous because it takes into account what people <em>could</em> watch while <em>using</em> the app as opposed to what was coded into the app.</p>
+
+<p>I thought it was ridiculous enough to force dictionary apps to censor swear words and stopping the Dragon Dictation app from recognizing the same, but pretending that obscene and grotesque material is not far easier to access with Mobile Safari is both laughable and unfair.</p>
+
+<p>Labeling an app as having &quot;Mild Profanity or Crude Humor&quot; is misleading unless the app makes a fart sound between view transitions. I could use the app to watch televised mass or a non-stop porn loop and in either case the app is merely presenting content to which I requested access.</p>
+
+<p>It is likewise unfair of me to pretend that this <a href="http://en.wikipedia.org/wiki/Bucky_O%27Hare">righteous indignation</a> is enough to get me to stop using or loving my iPhone. I was visibly distraught when my iPhone wouldn&#39;t turn on on Christmas morning and the following day and a half felt very disconnected indeed.</p>
+
+<p><strong>ppk</strong>, a foremost authority on all things JavaScript, has <a href="http://www.quirksmode.org/blog/archives/2009/11/apple_is_not_ev.html">advocated web apps as an alternative</a> to Apple&#39;s tyranny. I must agree that stuff like this makes me want to take a closer look at <a href="http://dev.w3.org/html5/spec/Overview.html">HTML 5</a>.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://itunes.apple.com/us/app/slingplayer-mobile/id309280605?mt=8">SlingPlayer Mobile</a></p>
+
+            
+    	</div>
+    
+
+    
+    <div class="nav-pagination">
+      
+        <span class="prev"></span>
+      
+
+      <div class="pgnums">
+      
+        
+          <em>1</em>
+        
+      
+        
+          <a href="/blog/page/2">2</a>
+        
+      
+        
+          <a href="/blog/page/3">3</a>
+        
+      
+        
+          <a href="/blog/page/4">4</a>
+        
+      
+        
+          <a href="/blog/page/5">5</a>
+        
+      
+        
+          <a href="/blog/page/6">6</a>
+        
+      
+        
+          <a href="/blog/page/7">7</a>
+        
+      
+        
+          <a href="/blog/page/8">8</a>
+        
+      
+      </div>
+
+      
+        <a class="next" href="/blog/page/2">Older Posts <i class="fa fa-arrow-circle-right"></i></a>
+      
+    </div>
+    
+</div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div id="blog-index">
+    
+    
+        
+    	<div id="post-/blog/2008/10/you-should-be-using-coda" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/10/you-should-be-using-coda">You should be using Coda</a></h3>
+    <span class="post-date">29 Oct 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/coda">coda</a>, 
+        
+            <a href="/blog/tag/cyberduck">cyberduck</a>, 
+        
+            <a href="/blog/tag/macfuse">macfuse</a>, 
+        
+            <a href="/blog/tag/opinion">opinion</a>, 
+        
+            <a href="/blog/tag/smultron">smultron</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>, 
+        
+            <a href="/blog/tag/zend-studio">zend-studio</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2008/10/you-should-be-using-coda"><p><img src="/img/blog/2008/10/coda-icon-350x350.png" alt="Coda Icon"></p>
+</a></div>
+
+<p>I have been hearing great things about Panic&#39;s <a href="http://www.panic.com/coda">Coda</a> since it came out, but as a broke college student doing web sites on the side I was put off by the $99 price tag.</p>
+
+<p>Up until now I have been using the fantastic and free <a href="http://tuppis.com/smultron">Smultron</a> and <a href="http://cyberduck.ch/">Cyberduck</a> apps to handle my text editing and file uploading needs.</p>
+
+<p>After starting my first full-time software development job last week, I found myself in need of a solution that would let me edit files directly on a development server. Connecting to the server via ssh in order to edit files in vi got old fast, so I tried mounting an SFTP volume using <a href="http://code.google.com/p/macfuse/">macfuse</a>, but found editing files to be slow and occasionally unreliable.</p>
+
+<p>It was then that my employer provided me with a license for <a href="http://www.zend.com/en/products/studio/">Zend Studio</a> and got me thinking about an all-in-one solution. Zend Studio is fine if a bit clunky, but I found myself wishing for features I missed from Xcode and for a more Mac-like experience in general.</p>
+
+<p>Enter Coda, the app that promises &quot;one window web development&quot; and oh my god does it deliver. I won&#39;t go into the complete feature list here, but suffice it to say that I was blown away by how fluid and streamlined my work flow became while using it. The key commands I use in Xcode, cross-file find, fantastic code completion, it&#39;s all there.</p>
+
+<p>I know I&#39;m a little late to the party on this one, but I fully intend on plunking down my $99 when my two week trial is over. As far as I&#39;m concerned the folks at Panic earned it.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://panic.com/coda">Coda</a> by Panic</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem">Setting the back button title of a UINavigationItem</a></h3>
+    <span class="post-date">17 Oct 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/cocoa">cocoa</a>, 
+        
+            <a href="/blog/tag/iphone">iphone</a>, 
+        
+            <a href="/blog/tag/iphone-dev">iphone-dev</a>
+        
+    </span>
+</div>
+    		<p>The following code will set the back button title of the current UINavigationItem:</p>
+
+<p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> Updated to fix memory leak. (Thanks <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-2626">Sam</a>!)</span></p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+2
+3
+4
+5
+6
+7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
+    <span class="nl">initWithTitle:</span><span class="s">@&quot;Back&quot;</span>
+            <span class="nl">style:</span><span class="n">UIBarButtonItemStylePlain</span>
+           <span class="nl">target:</span><span class="nb">nil</span>
+           <span class="nl">action:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">backButton</span><span class="p">];</span>
+<span class="p">[</span><span class="n">backButton</span> <span class="n">release</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>The <code>target:</code> and <code>action:</code> parameters are definitely ignored (replaced by the default back button behavior) and the style also seems to be ignored because the back button retains its pointed left side.</p>
+
+<p>This next block of code looks like it should do the same thing but <strong>does not work</strong>:</p>
+
+<p><del><code>self.navigationItem.backBarButtonItem.title = @&quot;Back&quot;;</code></del><br /></p>
+
+<p>This is because the back button is &quot;owned&quot; by the previous view on the stack (as pointed out in <a href="http://discussions.apple.com/thread.jspa?messageID=8217960">this thread</a>). In other words, the <code>setBackBarButtonItem</code> method should be called on the view that the user is navigating away from, rather than the view above which this button is actually displayed.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationItem_Class/Reference/UINavigationItem.html#//apple_ref/occ/instp/UINavigationItem/backBarButtonItem">UINavigationItem</a> on Apple Developer Docs</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2008/10/avoid-a-uitableview-headache" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/10/avoid-a-uitableview-headache">Avoid a UITableView headache</a></h3>
+    <span class="post-date">13 Oct 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/cocoa">cocoa</a>, 
+        
+            <a href="/blog/tag/iphone">iphone</a>, 
+        
+            <a href="/blog/tag/iphone-dev">iphone-dev</a>
+        
+    </span>
+</div>
+    		<p>When using a custom section header view on a grouped <code>UITableView</code>, remember to implement the <code>heightForHeaderInSection</code> delegate method.</p>
+
+<p>I initially left this out of a recent project because the documentation for the UITableView delegate method viewForHeaderInSection states:</p>
+
+<blockquote>
+<p>The table view automatically adjusts the height of the section header to accommodate the returned view object.</p>
+</blockquote>
+
+<p>What actually happened is that my header view was being clipped at the top and bottom, even though it was a <code>UILabel</code> which was the same font, weight and size of a standard section header (for the curious: I was attempting to change the text color).</p>
+
+<p>A quick perusal of the documentation revealed the existence of a <code>heightForHeaderInSection</code> delegate method which made the view display as expected and there was much rejoicing.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UITableViewDelegate_Protocol/Reference/Reference.html#//apple_ref/occ/intfm/UITableViewDelegate/tableView:heightForHeaderInSection:">UITableViewDelegate</a> on Apple Developer Docs</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2008/09/wordpress-iphone-app" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/09/wordpress-iphone-app">WordPress iPhone app</a></h3>
+    <span class="post-date">25 Sep 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/iphone">iphone</a>, 
+        
+            <a href="/blog/tag/twitter">twitter</a>, 
+        
+            <a href="/blog/tag/wordpress">wordpress</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2008/09/wordpress-iphone-app"><p><img src="/img/blog/2008/09/wordpress-logo-20-350x350.png" alt="Wordpress Logo"></p>
+</a></div>
+
+<p>I recently got an iPod touch on loan from a client that I&#39;m using to debug an iPhone app for him.</p>
+
+<p>Since I&#39;ve never be in possession of an iPhone/iPod touch before, (I do most of my work with the iPhone simulator) I&#39;ve been playing around with some of the free apps in the iTunes App Store.</p>
+
+<p>After finally getting around to updating this blog to the newest version of WordPress, I stumbled across the WordPress iPhone app, and I must say I&#39;m impressed. It&#39;s a little clunky to type HTML on the keyboard because letters, the <code>/</code> character and the <code>&lt;</code> and <code>&gt;</code> characters are on three different screens that you have to switch between.</p>
+
+<p>Other than that, the app was ridiculously easy to set up to work with my blog and gives pretty complete access to all posted content. As cool as it is, I am running the app on an iPod touch instead of an iPhone so I have to be near a WiFi hotspot to post anything, which means I&#39;ll probably still just txt stuff to <a href="http://twitter.com/adamjarret">Twitter</a>.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://itunes.apple.com/us/app/wordpress/id335703880?mt=8">WordPress for iPhone</a> on iTunes</p>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2008/09/gmaps2mbta-bookmarklet" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/09/gmaps2mbta-bookmarklet">GMaps2MBTA Bookmarklet</a></h3>
+    <span class="post-date">25 Sep 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/bookmarklet">bookmarklet</a>, 
+        
+            <a href="/blog/tag/google-maps">google-maps</a>, 
+        
+            <a href="/blog/tag/javascript">javascript</a>, 
+        
+            <a href="/blog/tag/mbta">mbta</a>, 
+        
+            <a href="/blog/tag/projects">projects</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<p>I moved to Brighton, MA at the beginning of September and as a result I no longer have much use for a car. I live right on the B line which - as a supplement to my old size 11s - gets me everywhere I need to be.</p>
+
+<p>Since I&#39;m new to the area, I have been using <a href="http://maps.google.com">Google Maps</a> a lot. While it&#39;s helpful to gain a general idea of where things are, it was becoming a frequent annoyance to cut and paste the start and end addresses from the Google Maps directions page into the <a href="http://mbta.com/rider_tools/trip_planner/">MBTA Trip Planner</a>.</p>
+
+<p>To solve the problem I took my first stab at writing a Javascript bookmarklet.</p>
+
+<p>The MBTA trip planner form submits &quot;post&quot; data, so my first approach was to create new a new form object in Javascript and submit it. This version worked fine in Safari and Chrome but did not work in Firefox for some reason.</p>
+
+<p>Luckily, before I got too deep into debugging the script, I noticed that the MBTA trip planner would also accept &quot;get&quot; form data which allowed me to create a 3 line version of the bookmarklet that neglected creating objects entirely.</p>
+
+<p>Both versions of the script are posted below. On a related note, I can wholeheartedly recommend the <a href="http://subsimple.com/bookmarklets/jsbuilder.htm">Bookmarklet Builder</a> from subsimple.com to compress the script for use as a bookmarklet.</p>
+
+<h4><a title="GMaps2MBTA for Safari and Chrome" href="javascript:(function(){var start=document.getElementById('d_d').value;var end=document.getElementById('d_daddr').value;var mbta_form=document.createElement(&quot;form&quot;);mbta_form.action=&quot;http://mbta.com/rider_tools/trip_planner/&quot;;mbta_form.method=&quot;post&quot;;var sa=document.createElement(&quot;input&quot;);sa.name=&quot;sa&quot;;sa.value=start;mbta_form.appendChild(sa);var ea=document.createElement(&quot;input&quot;);ea.name=&quot;ea&quot;;ea.value=end;mbta_form.appendChild(ea);mbta_form.submit();})()">GMaps2MBTA</a></h4>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="js"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nx">javascript</span><span class="o">:</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;d_d&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;d_daddr&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">mbta_form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;form&quot;</span><span class="p">);</span>
+<span class="nx">mbta_form</span><span class="p">.</span><span class="nx">action</span> <span class="o">=</span> <span class="s2">&quot;http://mbta.com/rider_tools/trip_planner/&quot;</span><span class="p">;</span>
+<span class="nx">mbta_form</span><span class="p">.</span><span class="nx">method</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">sa</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+<span class="nx">sa</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;sa&quot;</span><span class="p">;</span>
+<span class="nx">sa</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span>
+<span class="nx">mbta_form</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">sa</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">ea</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">);</span>
+<span class="nx">ea</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;ea&quot;</span><span class="p">;</span>
+<span class="nx">ea</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">end</span><span class="p">;</span>
+<span class="nx">mbta_form</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ea</span><span class="p">);</span>
+
+<span class="nx">mbta_form</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+<span class="p">})()</span>
+</pre></div>
+</td></tr></table>
+
+<h4><a title="GMaps2MBTA for Firefox and IE" href="javascript:(function(){var%20start=document.getElementById('d_d').value;var%20end=document.getElementById('d_daddr').value;document.location.href='http://mbta.com/rider_tools/trip_planner/?sa='+escape(start)+'&amp;ea='+escape(end);})()">GMaps2MBTA-FF</a></h4>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="js">1
+2
+3
+4
+5
+6</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="nx">javascript</span><span class="o">:</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="kd">var</span> <span class="nx">start</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;d_d&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;d_daddr&#39;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s1">&#39;http://mbta.com/rider_tools/trip_planner/?sa=&#39;</span><span class="o">+</span><span class="nx">escape</span><span class="p">(</span><span class="nx">start</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;&amp;amp;ea=&#39;</span><span class="o">+</span><span class="nx">escape</span><span class="p">(</span><span class="nx">end</span><span class="p">);</span>
+<span class="p">})()</span>
+</pre></div>
+</td></tr></table>
+
+            
+    	</div>
+    
+        
+            <div class="post-separator"><a href="#top"><i class="fa fa-arrow-circle-o-up "></i> Top</a></div>
+        
+    	<div id="post-/blog/2008/09/lukejarretmusiccom-revision" class="post">
+            <div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/09/lukejarretmusiccom-revision">LukeJarretMusic.com revision</a></h3>
+    <span class="post-date">16 Sep 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/ajax">ajax</a>, 
+        
+            <a href="/blog/tag/javascript">javascript</a>, 
+        
+            <a href="/blog/tag/joomla">joomla</a>, 
+        
+            <a href="/blog/tag/php">php</a>, 
+        
+            <a href="/blog/tag/web-dev">web-dev</a>
+        
+    </span>
+</div>
+    		<div class="main-image-container"><a href="/blog/2008/09/lukejarretmusiccom-revision"><p><img src="/img/blog/2008/09/joomla-logo.png" alt="Joomla Icon"></p>
+</a></div>
+
+<p>My brother <a href="http://lukejarretmusic.com">Luke</a> is an avid musician who writes, performs, records and produces his own music - with very little equipment.</p>
+
+<p>I rebuilt his web site using <a href="http://www.joomla.org/">Joomla</a> in an effort to gain some experience with Joomla 1.5.</p>
+
+<p>My brother&#39;s main concern for the site has always been an uninterrupted listening experience for the visitor. I accomplished this by implementing a custom link behavior in Joomla&#39;s admin pages that allows me to create links that load HTML content into a &lt;div&gt; on the current page instead of opening a new page. This way the music player does not need to be restarted when a user navigates away from the page.</p>
+
+<p>You can check it out at <a href="http://www.lukejarretmusic.com">lukejarretmusic.com</a>.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.joomla.org/">Joomla</a></p>
+
+            
+    	</div>
+    
+
+    
+    <div class="nav-pagination">
+      
+        <a class="prev" href="/blog/page/7"><i class="fa fa-arrow-circle-left"></i> Newer Posts</a>
+      
+
+      <div class="pgnums">
+      
+        
+          <a href="/blog">1</a>
+        
+      
+        
+          <a href="/blog/page/2">2</a>
+        
+      
+        
+          <a href="/blog/page/3">3</a>
+        
+      
+        
+          <a href="/blog/page/4">4</a>
+        
+      
+        
+          <a href="/blog/page/5">5</a>
+        
+      
+        
+          <a href="/blog/page/6">6</a>
+        
+      
+        
+          <a href="/blog/page/7">7</a>
+        
+      
+        
+          <em>8</em>
+        
+      
+      </div>
+
+      
+    </div>
+    
+</div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

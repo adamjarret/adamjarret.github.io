@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog - Debian: Beep at Login Prompt</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></h3>
+    <span class="post-date">28 Apr 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/debian">debian</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/linux">linux</a>
+        
+    </span>
+</div>
+
+<div id="post-/blog/2010/04/debian-beep-at-login-prompt" class="post">
+    <div class="main-image-container"><a href="/blog/2010/04/debian-beep-at-login-prompt"><p><img src="/img/blog/2010/04/debian-logo.png" alt="Debian Logo"></p>
+</a></div>
+
+<p>A spare PC that&#39;s been kicking around my apartment recently got a fresh dose of <a href="http://www.debian.org/CD/netinst/">Lenny</a>.</p>
+
+<p>As a headless machine, it&#39;s handy to have the system beep when it reaches the log in prompt to announce that it&#39;s ready to accept SSH connections.</p>
+
+<p>This is achieved with the <code>beep</code> command which can be installed with</p>
+
+<p><code>apt-get install beep</code></p>
+
+<p>The <code>beep</code> command can be used to play beeps at different frequencies and durations. For my &quot;system ready&quot; sound I decided on: </p>
+
+<p><code>beep -f 750 -l 200 -n -f 650 -l 200 -n -f 750 -l 200</code></p>
+
+<p>To execute the above command when the log in prompt is displayed, paste it into <strong>/etc/rc.local</strong> before the line <code>exit 0</code>.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://www.debian.org/CD/netinst/">Debian</a></p>
+
+</div>
+
+
+
+<p>Comments are closed for this post.</p>
+
+<div class="spn-container"><div class="spn-group"><a class="spn-label spn-right" href="/blog/2010/11/write-your-own-coda-plug-in"><i class="fa fa-arrow-circle-right"></i> <b>Next</b></a> <a class="spn spn-right" href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></div><div class="spn-group"><a class="spn-label spn-left" href="/blog/2010/04/stop-remote-desktop-from-locking-the-host"><i class="fa fa-arrow-circle-left"></i> <b>Previous</b></a> <a class="spn spn-left" href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></div></div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog - Google Voice + Fluid (SSB)</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div class="post-header">
+    <h3 class="post-title"><a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></h3>
+    <span class="post-date">20 Feb 2010</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/fluid">fluid</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/google-voice">google-voice</a>
+        
+    </span>
+</div>
+
+<div id="post-/blog/2010/02/google-voice-fluid-ssb" class="post">
+    <div class="main-image-container"><a href="/blog/2010/02/google-voice-fluid-ssb"><p><img src="/img/blog/2010/02/GoogleVoice_800x800-300x300.png" alt="Google Voice Icon"></p>
+</a><span class="caption">Google Voice Icon by malabooboo </span></div>
+
+<p><a href="http://google.com/voice">Google Voice</a> is the eighth wonder of the world.</p>
+
+<p>Mac users lucky enough to have secured an invite might consider creating a <a href="http://fluidapp.com/">Fluid site specific browser</a> to carve out some space for Google Voice on the Dock.</p>
+
+<p>An SSB is quite useful in itself, but even more so when a few CSS tweaks are applied.</p>
+
+<p>After launching Fluid and creating the SSB for <strong>http://google.com/voice</strong> (I highly recommend using <a href="http://www.flickr.com/photos/malabooboo/3724142785/sizes/o/in/pool-636943@N22/">malabooboo&#39;s icon</a> for the app icon), launch the newly created app and open the preferences panel.</p>
+
+<p>Click on <strong>Userstyles</strong> and then on the plus button to add a new URL pattern.</p>
+
+<p>In my case I simply used <strong>an asterisk (*)</strong> for the pattern, which matches any url. For more information on Userstyles, <a href="http://www.viddler.com/explore/itod/videos/28/">watch this video</a>.</p>
+
+<p>Adding your own CSS formatting instructions will alter how the page is displayed and potentially remove annoyances. Here are a few examples:</p>
+
+<h4>Allow the SMS textarea to be resized</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.gc-quicksms</span> <span class="nt">div</span> <span class="nt">textarea</span> <span class="p">{</span>
+    <span class="n">resize</span><span class="o">:</span> <span class="k">both</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Stop the SMS history from being hidden (remove "more messages" link)</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.gc-message-sms-old</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span> <span class="cp">!important</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.gc-message-sms-show</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Hide the "Invite a Friend" link</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nf">#gc-sidebar-invites</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4>Hide the Google Services links</h4>
+
+<div class="highlight"><pre><code class="css"><span class="nf">#gbar</span> <span class="p">{</span>
+        <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Remember to refresh the browser window with CMD-R to apply any changes made to the userstyles.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://google.com/voice">Google Voice</a></p>
+
+</div>
+
+
+    <div class="comments">
+        <h3><i class="fa fa-comments"></i> Comments</h3>
+        <div id="comment-8159" class="archived-comment">
+  
+    <span class="who">Alan Parks</span>
+  
+  on
+  <a href="/blog/2010/02/google-voice-fluid-ssb#comment-8159" class="when">7 May 2010 at 12:54 pm</a>
+  <blockquote>rock</blockquote>
+</div>
+
+    </div>
+
+
+<p>Comments are closed for this post.</p>
+
+<div class="spn-container"><div class="spn-group"><a class="spn-label spn-right" href="/blog/2010/04/stop-remote-desktop-from-locking-the-host"><i class="fa fa-arrow-circle-right"></i> <b>Next</b></a> <a class="spn spn-right" href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></div><div class="spn-group"><a class="spn-label spn-left" href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x"><i class="fa fa-arrow-circle-left"></i> <b>Previous</b></a> <a class="spn spn-left" href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></div></div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog - Gmail + Apple Mail - Headache</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div class="post-header">
+    <h3 class="post-title"><a href="/blog/2009/02/gmail-apple-mail-headache">Gmail + Apple Mail - Headache</a></h3>
+    <span class="post-date">3 Feb 2009</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/apple-mail">apple-mail</a>, 
+        
+            <a href="/blog/tag/fyi">fyi</a>, 
+        
+            <a href="/blog/tag/gmail">gmail</a>
+        
+    </span>
+</div>
+
+<div id="post-/blog/2009/02/gmail-apple-mail-headache" class="post">
+    <p>Like many people, I check several e-mail addresses regularly. To consolidate this process I use Apple Mail, my favorite e-mail client on the Mac platform.</p>
+
+<p>I use (and love) Gmail for my main personal address, but rarely use the online interface. I poked around with it when I first signed up in 2005, but since I almost always check my e-mail from one computer and like having a local copy of everything, I never really felt the pressure to ditch the desktop app.</p>
+
+<p>After reading about the new &quot;offline&quot; Gmail feature provided by <a href="http://gmailblog.blogspot.com/2009/01/new-in-labs-offline-gmail.html">Google Labs</a> I re-visited the idea of moving to the Gmail web interface as my primary e-mail client.</p>
+
+<p>Ultimately, I decided to continue to use Apple Mail so that I could check my work e-mail along side my personal messages and not have to migrate my existing local cache of messages, but I did take the opportunity to update the way I use Gmail.</p>
+
+<p>First and foremost I now connect to Gmail via IMAP as opposed to POP. I attempted this once before when IMAP first became available for Gmail, but quickly went back to POP after all the Gmail tags and Apple Mail folders attacked each other. IMAP is preferable to POP for many reasons (most obviously because it syncs mail read status across clients) and I&#39;m happy to report that this time,  with a little tweaking, it was pretty much smooth sailing (see caveats below).</p>
+
+<p>I also disabled all other personal accounts in Apple Mail and I set up Gmail to pull messages from all my other personal accounts via POP. This has the two-fold benefit of providing a unified world-class webmail experience for all my personal accounts, and allows me to keep a local copy of all my messages in Apple Mail, synched over IMAP. All my personal e-mail being routed through Gmail also has the benefit/privacy concern of google having a back-up of all my messages.</p>
+
+<p>Unfortunately, Apple Mail is not completely without its quirks when it comes to dealing with Gmail and IMAP. Google &quot;ToDo.mbox&quot; and you will find long rants about phantom labels that will not go away, and duplicate messages being downloaded.</p>
+
+<p>I never did find a solution to the &quot;ToDo.mbox&quot; problem (I tried <a href="http://www.macosxhints.com/article.php?story=20090115191259125">this</a> and stopped short of trying <a href="http://discussions.apple.com/thread.jspa?messageID=8461777">this</a>), but by enabling <em>Advanced IMAP Controls</em> from the Labs tab in Gmail Settings, and using it to stop the &quot;All Mail&quot; mailbox from appearing in Apple Mail, I convinced myself that the whole set up was a good idea.</p>
+
+<p>It might sound like a needless step to have Gmail pull messages from my other accounts only to read the Gmail messages through Apple Mail, but I like having the option of using the slick Gmail web interface if I am away from home. I love my web host (<a href="http://www.brinkster.com/redirect.aspx?rf=xfloydianslipx">Brinkster</a>) dearly, but the web mail provided is a joke, and not a particularly funny one. By accessing everything through Gmail, I get the best of all possible worlds.</p>
+
+<p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> <strong>Update:</strong> I set up Gmail to tag the messages it retrieves from my other accounts. These tags show up as folders in Apple Mail (yay!) but the app also caches the messages in two different locations on my hard drive (boo!) so I went back to <em>Advanced IMAP Controls</em> and have now also unsubscribed from the tags relating to my other accounts. The messages still appear in my Inbox and I set up a &quot;Smart Mailbox&quot; in Mail for each account to find the messages associated with that account. Obviously the &quot;Smart Mailboxes&quot; do not appear if I access my mail via the Gmail web interface, but in that case I can still use the Labels to filter by tag, so the experience is practically the same from the web to the desktop.</span></p>
+
+</div>
+
+
+    <div class="comments">
+        <h3><i class="fa fa-comments"></i> Comments</h3>
+        <div id="comment-7050" class="archived-comment">
+  
+    <a href="http://none" class="who">Shecky Green</a>
+  
+  on
+  <a href="/blog/2009/02/gmail-apple-mail-headache#comment-7050" class="when">12 Dec 2009 at 1:41 pm</a>
+  <blockquote>Same problems here, PLUS;
+* Extra unnamed  inbox icons
+* Empty gmail folder
+* Fluctuating, mismatched and inaccurately labeled numbers of folder items
+* Up to 6 copies of the same email messages
+* Entire computer bogged to a crawl due to Mail refusing to quit and hogging all bandwidth while locked in a furious info-swap with gmail.
+* apple Mail preferences won't delete accounts
+ALL SOLVED BY NUKING APPLE MAILl!!!!</blockquote>
+</div>
+<div id="comment-41748" class="archived-comment">
+  
+    <a href="http://www.outdoorjacketsale.co.uk" class="who">JANYCE</a>
+  
+  on
+  <a href="/blog/2009/02/gmail-apple-mail-headache#comment-41748" class="when">19 Oct 2013 at 1:55 am</a>
+  <blockquote>Hi! I was curious to know if setting up a site such your own:  is challenging to do for inexperienced people? I've been hoping to develop my own website for a while now but have been turned off because I've always believed it required tons of work. What do you think? Thankyou</blockquote>
+</div>
+
+    </div>
+
+
+<p>Comments are closed for this post.</p>
+
+<div class="spn-container"><div class="spn-group"><a class="spn-label spn-right" href="/blog/2009/02/twitter-google-reader"><i class="fa fa-arrow-circle-right"></i> <b>Next</b></a> <a class="spn spn-right" href="/blog/2009/02/twitter-google-reader">Twitter + Google Reader</a></div><div class="spn-group"><a class="spn-label spn-left" href="/blog/2009/01/proud-to-be-an-american"><i class="fa fa-arrow-circle-left"></i> <b>Previous</b></a> <a class="spn spn-left" href="/blog/2009/01/proud-to-be-an-american">Proud to be an American</a></div></div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>

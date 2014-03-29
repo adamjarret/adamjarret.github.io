@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title>Adam Jarret - Blog - Setting the back button title of a UINavigationItem</title>
+
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+  </head>
+
+  <body class="atj">
+  
+    <div class="container">
+    
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li class=""><a href="/">Home</a></li>
+				<li class="active"><a href="/blog">Blog</a></li>
+				<li><a href="https://github.com/adamjarret?tab=repositories">Projects</a></li>
+			</ul>
+			<h1><a href="/" class="text-muted">Adam Jarret</a></h1>
+		</div>
+
+		<div id="blog" class="row">
+	<div class="col-md-8">
+		<h2><a href="/blog">Blog</a></h2>
+		<div class="post-header">
+    <h3 class="post-title"><a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem">Setting the back button title of a UINavigationItem</a></h3>
+    <span class="post-date">17 Oct 2008</span> | Tags: <span class="tags">
+        
+            <a href="/blog/tag/cocoa">cocoa</a>, 
+        
+            <a href="/blog/tag/iphone">iphone</a>, 
+        
+            <a href="/blog/tag/iphone-dev">iphone-dev</a>
+        
+    </span>
+</div>
+
+<div id="post-/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem" class="post">
+    <p>The following code will set the back button title of the current UINavigationItem:</p>
+
+<p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> Updated to fix memory leak. (Thanks <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-2626">Sam</a>!)</span></p>
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+2
+3
+4
+5
+6
+7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
+    <span class="nl">initWithTitle:</span><span class="s">@&quot;Back&quot;</span>
+            <span class="nl">style:</span><span class="n">UIBarButtonItemStylePlain</span>
+           <span class="nl">target:</span><span class="nb">nil</span>
+           <span class="nl">action:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">backButton</span><span class="p">];</span>
+<span class="p">[</span><span class="n">backButton</span> <span class="n">release</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>The <code>target:</code> and <code>action:</code> parameters are definitely ignored (replaced by the default back button behavior) and the style also seems to be ignored because the back button retains its pointed left side.</p>
+
+<p>This next block of code looks like it should do the same thing but <strong>does not work</strong>:</p>
+
+<p><del><code>self.navigationItem.backBarButtonItem.title = @&quot;Back&quot;;</code></del><br /></p>
+
+<p>This is because the back button is &quot;owned&quot; by the previous view on the stack (as pointed out in <a href="http://discussions.apple.com/thread.jspa?messageID=8217960">this thread</a>). In other words, the <code>setBackBarButtonItem</code> method should be called on the view that the user is navigating away from, rather than the view above which this button is actually displayed.</p>
+
+<p><i class="fa fa-share-square-o"></i> <a href="http://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationItem_Class/Reference/UINavigationItem.html#//apple_ref/occ/instp/UINavigationItem/backBarButtonItem">UINavigationItem</a> on Apple Developer Docs</p>
+
+</div>
+
+
+    <div class="comments">
+        <h3><i class="fa fa-comments"></i> Comments</h3>
+        <div id="comment-381" class="archived-comment">
+  
+    <span class="who">shoaib</span>
+  
+  on
+  <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-381" class="when">3 Apr 2009 at 2:52 am</a>
+  <blockquote>Hi,
+
+By adding the above code, Back button is enabled but it shows memory leakage. Is there any way to avoid memory leakage?</blockquote>
+</div>
+<div id="comment-457" class="archived-comment">
+  
+    <span class="who">George</span>
+  
+  on
+  <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-457" class="when">15 Apr 2009 at 9:48 am</a>
+  <blockquote>Thank you for this! I was banging my head against the wall on this one - the Apple developer site only hints at what needs to be done.</blockquote>
+</div>
+<div id="comment-458" class="archived-comment">
+  
+    <span class="who">George</span>
+  
+  on
+  <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-458" class="when">15 Apr 2009 at 9:56 am</a>
+  <blockquote>PS to Shoaib, try looking at where you have placed the back button code. As Adam mentioned, it should go in the view that the user is navigating away from, rather than in the view that the user is navigating to. It seems to work wherever you put the code, but I think it should go right before your:
+
+<code>[self.navigationController pushViewController:newViewName animated:YES];</code>
+
+statement.</blockquote>
+</div>
+<div id="comment-2626" class="archived-comment">
+  
+    <a href="http://samsoff.es" class="who">Sam Soffes</a>
+  
+  on
+  <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-2626" class="when">13 Jul 2009 at 7:52 pm</a>
+  <blockquote>That would create a leak. Do this instead:
+
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+2
+3</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithTitle</span><span class="o">:</span><span class="s">@&quot;Back&quot;</span> <span class="n">style</span><span class="o">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="n">target</span><span class="o">:</span><span class="nb">nil</span> <span class="n">action</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">backButton</span><span class="p">];</span>
+<span class="p">[</span><span class="n">backButton</span> <span class="n">release</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+</blockquote>
+</div>
+<div id="comment-7320" class="archived-comment">
+  
+    <span class="who">Duncan Champney</span>
+  
+  on
+  <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-7320" class="when">9 Jan 2010 at 2:36 am</a>
+  <blockquote><a href="#comment-381" rel="nofollow">@shoaib</a>,
+
+The memory leakage is because the UIBarButtonItem is being created with a retain count of 1. It should be autoreleased before adding it to the navigation item, like this: (split into 2 lines for clarity)
+
+
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+2</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span><span class="o">*</span> <span class="n">newBarButtonItem</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithTitle</span><span class="o">:</span><span class="s">@&quot;Map&quot;</span> <span class="n">style</span><span class="o">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="n">target</span><span class="o">:</span><span class="nb">nil</span> <span class="n">action</span><span class="o">:</span><span class="nb">nil</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
+<span class="p">[</span><span class="n">theMapViewController</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">newBarButtonItem</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+</blockquote>
+</div>
+
+    </div>
+
+
+<p>Comments are closed for this post.</p>
+
+<div class="spn-container"><div class="spn-group"><a class="spn-label spn-right" href="/blog/2008/10/you-should-be-using-coda"><i class="fa fa-arrow-circle-right"></i> <b>Next</b></a> <a class="spn spn-right" href="/blog/2008/10/you-should-be-using-coda">You should be using Coda</a></div><div class="spn-group"><a class="spn-label spn-left" href="/blog/2008/10/avoid-a-uitableview-headache"><i class="fa fa-arrow-circle-left"></i> <b>Previous</b></a> <a class="spn spn-left" href="/blog/2008/10/avoid-a-uitableview-headache">Avoid a UITableView headache</a></div></div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="sidebar">
+			<h3><i class="fa fa-rss"></i> <a href="/blog/feed.xml">RSS Feed</a></h3>
+			<h3>Latest Posts</h3>
+			<ul class="latest-posts">
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/11/write-your-own-coda-plug-in">Write Your Own Coda Plug-In</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/debian-beep-at-login-prompt">Debian: Beep at Login Prompt</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/04/stop-remote-desktop-from-locking-the-host">Stop Remote Desktop from Locking the Host</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/02/google-voice-fluid-ssb">Google Voice + Fluid (SSB)</a></li>
+				
+					<li><i class="fa fa-leaf"></i> <a href="/blog/2010/01/downgrading-to-flash-player-9-on-mac-os-x">Downgrading to Flash Player 9 on Mac OS X</a></li>
+				
+			</ul>
+			<h3>Archive</h3>
+			<div class="years"><div class="year"><h4><a href="/blog/2010">2010</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2010/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2010/02">February</a></li><li class="month Apr"><a class="month-link" href="/blog/2010/04">April</a></li><li class="month Nov"><a class="month-link" href="/blog/2010/11">November</a></li></ul></div><div class="year"><h4><a href="/blog/2009">2009</a></h4><ul class="months"><li class="month Jan"><a class="month-link" href="/blog/2009/01">January</a></li><li class="month Feb"><a class="month-link" href="/blog/2009/02">February</a></li><li class="month Mar"><a class="month-link" href="/blog/2009/03">March</a></li><li class="month Apr"><a class="month-link" href="/blog/2009/04">April</a></li><li class="month May"><a class="month-link" href="/blog/2009/05">May</a></li><li class="month Jun"><a class="month-link" href="/blog/2009/06">June</a></li><li class="month Aug"><a class="month-link" href="/blog/2009/08">August</a></li><li class="month Oct"><a class="month-link" href="/blog/2009/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2009/11">November</a></li><li class="month Dec"><a class="month-link" href="/blog/2009/12">December</a></li></ul></div><div class="year"><h4><a href="/blog/2008">2008</a></h4><ul class="months"><li class="month Sep"><a class="month-link" href="/blog/2008/09">September</a></li><li class="month Oct"><a class="month-link" href="/blog/2008/10">October</a></li><li class="month Nov"><a class="month-link" href="/blog/2008/11">November</a></li></ul></div></div>
+		</div>
+	</div>
+</div>
+
+
+		<div class="footer blog">
+			Copyright &copy; 2014 Adam Jarret
+		</div> <!-- /footer -->
+		     
+    </div> <!-- /container -->
+
+    <!-- JavaScript placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/vendor/jquery.colorbox.min.js"></script>
+    <script src="/js/app/app.js"></script>
+
+  </body>
+</html>
