@@ -12,7 +12,7 @@
 	<title>Adam Jarret - Blog - Setting the back button title of a UINavigationItem</title>
 
     <link href="/css/main.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -56,19 +56,19 @@
 
 <p><span class="post-amendment"><i class="fa fa-exclamation-triangle"></i> Updated to fix memory leak. (Thanks <a href="/blog/2008/10/setting-the-back-button-title-of-a-uinavigationitem#comment-2626">Sam</a>!)</span></p>
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-objective-c" data-lang="objective-c">1
 2
 3
 4
 5
 6
-7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
-    <span class="nl">initWithTitle:</span><span class="s">@&quot;Back&quot;</span>
-            <span class="nl">style:</span><span class="n">UIBarButtonItemStylePlain</span>
-           <span class="nl">target:</span><span class="nb">nil</span>
-           <span class="nl">action:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">backButton</span><span class="p">];</span>
-<span class="p">[</span><span class="n">backButton</span> <span class="n">release</span><span class="p">];</span>
+7</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="bp">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span>
+    <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&quot;Back&quot;</span>
+            <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span>
+           <span class="nl">target</span><span class="p">:</span><span class="nb">nil</span>
+           <span class="nl">action</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="nl">setBackBarButtonItem</span><span class="p">:</span><span class="n">backButton</span><span class="p">];</span>
+<span class="p">[</span><span class="n">backButton</span> <span class="k">release</span><span class="p">];</span>
 </pre></div>
 </td></tr></table>
 
@@ -126,11 +126,11 @@ statement.</blockquote>
   <blockquote>That would create a leak. Do this instead:
 
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-objective-c" data-lang="objective-c">1
 2
-3</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithTitle</span><span class="o">:</span><span class="s">@&quot;Back&quot;</span> <span class="n">style</span><span class="o">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="n">target</span><span class="o">:</span><span class="nb">nil</span> <span class="n">action</span><span class="o">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">backButton</span><span class="p">];</span>
-<span class="p">[</span><span class="n">backButton</span> <span class="n">release</span><span class="p">];</span>
+3</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="bp">UIBarButtonItem</span> <span class="o">*</span><span class="n">backButton</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&quot;Back&quot;</span> <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="nl">target</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">action</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">navigationItem</span> <span class="nl">setBackBarButtonItem</span><span class="p">:</span><span class="n">backButton</span><span class="p">];</span>
+<span class="p">[</span><span class="n">backButton</span> <span class="k">release</span><span class="p">];</span>
 </pre></div>
 </td></tr></table>
 </blockquote>
@@ -146,9 +146,9 @@ statement.</blockquote>
 The memory leakage is because the UIBarButtonItem is being created with a retain count of 1. It should be autoreleased before adding it to the navigation item, like this: (split into 2 lines for clarity)
 
 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="objective-c">1
-2</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="n">UIBarButtonItem</span><span class="o">*</span> <span class="n">newBarButtonItem</span> <span class="o">=</span> <span class="p">[[[</span><span class="n">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithTitle</span><span class="o">:</span><span class="s">@&quot;Map&quot;</span> <span class="n">style</span><span class="o">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="n">target</span><span class="o">:</span><span class="nb">nil</span> <span class="n">action</span><span class="o">:</span><span class="nb">nil</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
-<span class="p">[</span><span class="n">theMapViewController</span><span class="p">.</span><span class="n">navigationItem</span> <span class="n">setBackBarButtonItem</span><span class="o">:</span><span class="n">newBarButtonItem</span><span class="p">];</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><code class="language-objective-c" data-lang="objective-c">1
+2</code></pre></div></td><td class="code"><div class="highlight"><pre><span class="bp">UIBarButtonItem</span><span class="o">*</span> <span class="n">newBarButtonItem</span> <span class="o">=</span> <span class="p">[[[</span><span class="bp">UIBarButtonItem</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithTitle</span><span class="p">:</span><span class="s">@&quot;Map&quot;</span> <span class="nl">style</span><span class="p">:</span><span class="n">UIBarButtonItemStylePlain</span> <span class="nl">target</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">action</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span> <span class="n">autorelease</span><span class="p">];</span>
+<span class="p">[</span><span class="n">theMapViewController</span><span class="p">.</span><span class="n">navigationItem</span> <span class="nl">setBackBarButtonItem</span><span class="p">:</span><span class="n">newBarButtonItem</span><span class="p">];</span>
 </pre></div>
 </td></tr></table>
 </blockquote>
@@ -202,7 +202,7 @@ The memory leakage is because the UIBarButtonItem is being created with a retain
 
 
 		<div class="footer blog">
-			Copyright &copy; 2014 Adam Jarret
+			Copyright &copy; 2015 Adam Jarret
 		</div> <!-- /footer -->
 		     
     </div> <!-- /container -->
